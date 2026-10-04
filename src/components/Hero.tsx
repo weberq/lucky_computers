@@ -203,6 +203,12 @@ export default function CinematicHero() {
         {!reduced && <Particles />}
       </div>
 
+      {/* SEO: always present in the server HTML, visually hidden.
+          The animated headlines below are decorative <p> elements. */}
+      <h1 className="sr-only">
+        Lucky Computers – Laptop &amp; Computer Repair, Upgrades and Refurbished Laptops in Kukatpally, Hyderabad
+      </h1>
+
       <div className="relative z-20 mx-auto flex h-full w-full max-w-[1600px] flex-col justify-center px-4 sm:px-10 lg:px-16">
         <AnimatePresence mode="wait">
 
@@ -216,9 +222,9 @@ export default function CinematicHero() {
               transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
               className="absolute inset-0 flex items-center justify-center px-4 text-center pointer-events-none"
             >
-              <h1 className="max-w-[19ch] text-balance text-[clamp(1.8rem,9vw,6rem)] sm:text-[clamp(2.5rem,9vw,6rem)] font-black uppercase leading-[0.95] tracking-tight text-slate-900 drop-shadow-sm sm:leading-[0.9] lg:max-w-none lg:tracking-tighter">
+              <p className="max-w-[19ch] text-balance text-[clamp(1.8rem,9vw,6rem)] sm:text-[clamp(2.5rem,9vw,6rem)] font-black uppercase leading-[0.95] tracking-tight text-slate-900 drop-shadow-sm sm:leading-[0.9] lg:max-w-none lg:tracking-tighter">
                 YOUR LAPTOP <br className="hidden lg:block" /> ISN&rsquo;T <span className="text-slate-400 line-through decoration-blue-500 decoration-4">DEAD</span>
-              </h1>
+              </p>
             </motion.div>
           )}
 
@@ -231,7 +237,7 @@ export default function CinematicHero() {
               transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
               className="absolute inset-0 flex items-center justify-center px-4 text-center pointer-events-none"
             >
-              <h1 className="max-w-[17ch] text-balance text-[clamp(1.8rem,8.5vw,5.5rem)] sm:text-[clamp(2.5rem,8.5vw,5.5rem)] font-black uppercase leading-[0.95] tracking-tight text-slate-900 drop-shadow-sm sm:leading-[0.9] lg:max-w-none lg:tracking-tighter">
+              <p className="max-w-[17ch] text-balance text-[clamp(1.8rem,8.5vw,5.5rem)] sm:text-[clamp(2.5rem,8.5vw,5.5rem)] font-black uppercase leading-[0.95] tracking-tight text-slate-900 drop-shadow-sm sm:leading-[0.9] lg:max-w-none lg:tracking-tighter">
                 IT JUST NEEDS <br />
                 <motion.span
                   animate={reduced ? {} : { backgroundPosition: ['0% 50%', '100% 50%', '0% 50%'] }}
@@ -241,7 +247,7 @@ export default function CinematicHero() {
                 >
                   THE RIGHT HANDS
                 </motion.span>
-              </h1>
+              </p>
             </motion.div>
           )}
 
