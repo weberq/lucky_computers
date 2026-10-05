@@ -14,7 +14,7 @@ const NAV_LINKS = [
   { name: 'Why Us', href: '#why-us' },
 ] as const;
 
-const CALL_URL = 'tel:+919618849601';
+const CALL_URL = 'tel:+919391919214';
 
 function NavLink({ name, href }: { name: string; href: string }) {
   return (

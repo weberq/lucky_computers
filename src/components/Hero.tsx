@@ -10,7 +10,7 @@ import {
   useReducedMotion,
   type MotionValue,
 } from 'framer-motion';
-import { Cpu, HardDrive, MemoryStick, Fan, CircuitBoard, Wrench } from 'lucide-react';
+import { Cpu, HardDrive, MemoryStick, Fan, CircuitBoard, Wrench, Phone } from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
 import Image from 'next/image';
 import heroBg from '@/assets/unsplash/hero-bg.jpg';
@@ -344,6 +344,26 @@ export default function CinematicHero() {
                       </div>
                     </a>
                   </motion.div>
+
+                  {/* CONTACT US BUTTON — mobile only, sits under Get Directions */}
+                  <motion.div
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 1, delay: 3.3, ease: [0.16, 1, 0.3, 1] }}
+                    className="pointer-events-auto shrink-0 w-auto sm:hidden"
+                  >
+                    <a
+                      href="tel:+919391919214"
+                      aria-label="Call Lucky Computers at 9391919214"
+                      className="group relative flex h-11 w-[195px] items-center justify-between overflow-hidden rounded-full border-2 border-slate-900 bg-transparent px-5 text-xs font-bold uppercase tracking-widest text-slate-900 transition-all duration-300 hover:bg-slate-900 hover:text-white active:scale-95"
+                    >
+                      <span className="relative z-10">Contact Us</span>
+                      <div className="relative z-10 flex h-6 w-6 items-center justify-center rounded-full bg-slate-900/10 transition-colors duration-300 group-hover:bg-white/20">
+                        <Phone className="h-3 w-3" strokeWidth={2.5} />
+                      </div>
+                    </a>
+                  </motion.div>
+
                   <motion.div
                     initial={{ opacity: 0, y: 16 }}
                     animate={{ opacity: 1, y: 0 }}

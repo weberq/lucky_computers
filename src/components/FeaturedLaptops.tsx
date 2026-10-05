@@ -189,7 +189,7 @@ export default function PremiumInventory() {
           </div>
           
           <a 
-            href={`https://wa.me/919618849601?text=Hi,%20I'm%20looking%20for%20a%20refurbished%20laptop.`}
+            href={`https://wa.me/919391919214?text=Hi,%20I'm%20looking%20for%20a%20refurbished%20laptop.`}
             target="_blank" 
             rel="noopener noreferrer" 
             className="group flex w-full shrink-0 items-center justify-center gap-1.5 rounded-lg bg-slate-900 px-5 py-2.5 text-[11px] font-bold uppercase tracking-widest text-white transition-colors hover:bg-blue-600 sm:w-auto"
