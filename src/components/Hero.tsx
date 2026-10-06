@@ -23,6 +23,12 @@ type Phase = 0 | 1 | 2 | 3;
 const HERO_IMAGE = heroBg;
 
 /* ============================================================
+   GOOGLE MAPS LOCATION
+   ============================================================ */
+const MAPS_URL =
+  'https://www.google.com/maps/place/Lucky+Computers/@17.4986578,78.2778283,12z/data=!4m20!1m13!4m12!1m4!2m2!1d78.3156037!2d17.5090439!4e1!1m6!1m2!1s0x3bcb91ab6663e18b:0xc592e3ddcb1fd730!2sLucky+Computers,+3-2-33,+Hanuman+Temple+Rd,+Bagh+Ameer,+Baghameeri+Village,+Kukatpally,+Hyderabad,+Telangana+500011!2m2!1d78.4116071!2d17.4868567!3m5!1s0x3bcb91ab6663e18b:0xc592e3ddcb1fd730!8m2!3d17.4868567!4d78.4116071!16s%2Fg%2F11md3td0n4?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D';
+
+/* ============================================================
    STATS
    ============================================================ */
 const STATS = [
@@ -331,7 +337,7 @@ export default function CinematicHero() {
                     className="pointer-events-auto shrink-0 w-auto"
                   >
                     <a
-                      href="https://www.google.com/maps/place/Lucky+Computers/@17.4848963,78.3941357,14z/"
+                      href={MAPS_URL}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="group relative flex h-11 w-[195px] items-center justify-between overflow-hidden rounded-full bg-slate-900 px-5 text-xs font-bold uppercase tracking-widest text-white transition-all duration-300 hover:bg-blue-600 hover:shadow-[0_8px_30px_rgba(37,99,235,0.4)] active:scale-95"
