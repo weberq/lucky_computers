@@ -12,6 +12,12 @@ const fadeUp: Variants = {
   show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] } },
 };
 
+/* ============================================================
+   GOOGLE MAPS EMBED
+   ============================================================ */
+const MAPS_EMBED_URL =
+  'https://www.google.com/maps?q=Lucky+Computers,+3-2-33,+Hanuman+Temple+Rd,+Bagh+Ameer,+Baghameeri+Village,+Kukatpally,+Hyderabad,+Telangana+500011&hl=en&z=17&output=embed';
+
 export default function Contact() {
   const sectionRef = useRef<HTMLElement>(null);
   const inView = useInView(sectionRef, { once: true, margin: '-60px' });
@@ -148,7 +154,7 @@ export default function Contact() {
                   </div>
                   <div className="text-[11px] font-semibold leading-relaxed text-slate-800">
                     <p>Mon - Sat</p>
-                    <p className="mt-0.5 font-black text-blue-600">10:00 AM - 8:00 PM</p>
+                    <p className="mt-0.5 font-black text-blue-600">9:00 AM - 9:00 PM</p>
                   </div>
                 </div>
               </div>
@@ -161,7 +167,7 @@ export default function Contact() {
                 Live Radar
               </div>
               <iframe
-                src="https://maps.google.com/maps?q=Lucky+Computers,+3-2-33,+Hanuman+Temple+Rd,+Bagh+Ameer,+Kukatpally,+Hyderabad&t=m&z=15&output=embed&iwloc=near"
+                src={MAPS_EMBED_URL}
                 title="Lucky Computers Location"
                 className="h-full w-full grayscale-[40%] opacity-90 transition-all duration-700 group-hover:grayscale-0 group-hover:opacity-100"
                 style={{ border: 0 }}
