@@ -23,7 +23,9 @@ Business details live in `src/lib/site.ts`. Pages: home, `/laptops/`, `/repairs/
 
 Repository: https://github.com/weberq/lucky_computers
 
-Preview: https://weberq.github.io/lucky_computers/
+Live site: https://luckycomputers.in/
+
+Original Pages URL: https://weberq.github.io/lucky_computers/ (redirects after custom-domain activation).
 
 Settings → Pages → Source must be **GitHub Actions**. `.github/workflows/pages.yml` validates and deploys every push to `main`. Pull requests build and validate without publishing. The workflow reads the hostname and base path from Pages, so a custom domain uses root paths automatically after another deployment.
 
@@ -38,8 +40,10 @@ The GitHub preview uses `noindex` metadata to avoid competing with the business 
 
 ## Domain migration
 
+The apex domain is now active with HTTPS enforcement. Hostinger has an apex ALIAS to `weberq.github.io` and a `www` CNAME to `weberq.github.io`. DNS propagation and GitHub certificate coverage for `www` must complete before its HTTPS redirect can be considered verified.
+
 1. Keep Hostinger serving the existing domain until the Pages preview is verified.
-2. In this repository's Pages settings, add the chosen canonical domain, preferably `www.luckycomputers.in` to match existing links. Follow GitHub's domain verification instructions.
+2. In this repository's Pages settings, use `luckycomputers.in`, the configured canonical domain. Follow GitHub's domain verification instructions.
 3. Map DNS following [GitHub's custom-domain guide](https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site). The `www` CNAME target is `weberq.github.io` (no repository path). Configure apex records as instructed by GitHub. Preserve unrelated mail and verification records.
 4. Run the deployment workflow again after saving the domain. Its metadata, sitemap, image paths and manifest must use the custom domain with an empty base path.
 5. Wait for HTTPS, enable Enforce HTTPS, verify both apex and www resolve correctly, all five routes work on refresh, and sitemap/canonical/robots match the chosen domain.

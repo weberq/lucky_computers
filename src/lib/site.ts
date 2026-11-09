@@ -1,6 +1,6 @@
 export const BASE_PATH = (process.env.NEXT_PUBLIC_BASE_PATH ?? "").replace(/\/$/, "");
 export const sitePath = (path = "/") => `${BASE_PATH}${path}`;
-const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL || "https://www.luckycomputers.in").replace(/\/$/, "");
+const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL || "https://luckycomputers.in").replace(/\/$/, "");
 
 export const SITE = {
   url: siteUrl,
