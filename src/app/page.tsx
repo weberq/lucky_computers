@@ -1,31 +1,13 @@
-import Navbar from "@/components/Navbar";
+import Link from "next/link";
 import Hero from "@/components/Hero";
-import Services from "@/components/Services";
-import Ecosystem from "@/components/Ecosystem";
 import FeaturedLaptops from "@/components/FeaturedLaptops";
-import About from "@/components/About";
 import WhyUs from "@/components/WhyUs";
 import Contact from "@/components/Contact";
-import Footer from "@/components/Footer";
 import JsonLd from "@/components/JsonLd";
 
-// Server Component: renders the page shell; each section is a client
-// component where it needs animation or state.
 export default function HomePage() {
-  return (
-    <div className="relative min-h-screen bg-slate-50 font-sans text-slate-900 selection:bg-blue-500 selection:text-white overflow-x-hidden">
-      <JsonLd />
-      <Navbar />
-      <main>
-      <Hero />
-      <Services />
-      <Ecosystem />
-      <FeaturedLaptops />
-      <About />
-      <WhyUs />
-      <Contact />
-      </main>
-      <Footer />
-    </div>
-  );
+  return <main id="main-content"><JsonLd/><Hero/><FeaturedLaptops/><WhyUs/>
+    <section id="services" className="section-pad bg-white"><div className="container-width grid gap-5 md:grid-cols-[1fr_auto] md:items-center"><div><p className="eyebrow">Device repairs in Kukatpally</p><h2 className="section-title mt-2">Need help with a device?</h2><p className="mt-4 max-w-2xl leading-7 text-slate-600">We also repair laptops, desktops and mobile phones, including Apple iPhones. Discuss screen or motherboard repairs, data recovery, RAM and SSD upgrades, and overheating issues.</p></div><Link className="btn-secondary" href="/repairs/">Explore repair services →</Link></div></section>
+    <Contact/>
+  </main>;
 }

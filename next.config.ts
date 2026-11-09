@@ -1,14 +1,10 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  // The original Vite app removed <StrictMode> because the Hero's phase
-  // timer sequence was being double-fired in development. Keep parity.
-  reactStrictMode: false,
-  images: {
-    remotePatterns: [
-      { protocol: "https", hostname: "images.unsplash.com" },
-    ],
-  },
+  output: "export",
+  trailingSlash: true,
+  basePath: process.env.NEXT_PUBLIC_BASE_PATH || "",
+  reactStrictMode: true,
+  images: { unoptimized: true },
 };
-
 export default nextConfig;

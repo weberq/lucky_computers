@@ -27,3 +27,8 @@ next-env.d.ts
 .vscode/*
 !.vscode/extensions.json
 .idea
+
+# Never publish local secrets
+.env
+.env.*
+!.env.example

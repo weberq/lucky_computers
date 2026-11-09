@@ -2,7 +2,8 @@ import { ImageResponse } from "next/og";
 
 // Preview image shown when the site is shared on WhatsApp, Facebook,
 // Instagram DMs, LinkedIn, X, etc.
-export const alt = "Lucky Computers – Laptop & Computer Repair in Kukatpally, Hyderabad";
+export const dynamic = "force-static";
+export const alt = "Lucky Computers – Laptops, PCs & Accessories in Kukatpally";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -23,14 +24,14 @@ export default function OpengraphImage() {
         }}
       >
         <div style={{ display: "flex", fontSize: 28, fontWeight: 700, letterSpacing: 6, color: "#2563eb" }}>
-          FAST. RELIABLE. HONEST.
+          VISIT US IN KUKATPALLY
         </div>
         <div style={{ display: "flex", flexDirection: "column" }}>
-          <div style={{ display: "flex", fontSize: 110, fontWeight: 900, lineHeight: 1, letterSpacing: -3 }}>
+          <div style={{ display: "flex", fontSize: 88, fontWeight: 900, lineHeight: 1, letterSpacing: -3 }}>
             LUCKY COMPUTERS
           </div>
           <div style={{ display: "flex", fontSize: 42, fontWeight: 600, marginTop: 24, color: "#334155" }}>
-            Laptop &amp; Computer Repair · Refurbished Laptops
+            Laptops · Custom PCs · Accessories
           </div>
         </div>
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", fontSize: 30, fontWeight: 600 }}>

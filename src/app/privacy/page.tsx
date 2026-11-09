@@ -1,0 +1,10 @@
+import { pageMetadata } from "@/lib/site";
+export const metadata = pageMetadata("Privacy & Website Measurement", "How Lucky Computers handles website enquiries, external links and optional website measurement.", "/privacy/");
+export default function PrivacyPage() {
+ return <main id="main-content" className="section-pad"><article className="container-width max-w-3xl!"><p className="eyebrow">Lucky Computers</p><h1 className="section-title mt-3">Privacy & website measurement</h1>
+ <h2 className="mt-8 text-xl font-bold">Enquiries</h2><p className="mt-3 leading-8 text-slate-600">The enquiry form creates a WhatsApp draft on your device. It does not submit your message to a website database. Review and send the draft in WhatsApp to contact the store. WhatsApp handles information under its own privacy policy. Please do not include passwords, financial details or other sensitive information.</p>
+ <h2 className="mt-8 text-xl font-bold">Maps and external services</h2><p className="mt-3 leading-8 text-slate-600">Directions and map links open Google Maps. Embedded maps and social links are provided by third parties. Those services and the website hosting provider may receive connection information such as your IP address.</p>
+ <h2 className="mt-8 text-xl font-bold">Optional measurement</h2><p className="mt-3 leading-8 text-slate-600">If measurement is configured, we ask before enabling Google Analytics or advertising measurement. These tools may record page views and actions such as clicking directions, call or WhatsApp. A click does not prove a completed call, sent message, store visit or sale. Enquiry text is never included in website measurement events. Your choice is stored in this browser and can be changed using Measurement preferences at the bottom of the page when measurement is enabled.</p>
+ <h2 className="mt-8 text-xl font-bold">Questions</h2><p className="mt-3 leading-8 text-slate-600">Contact Lucky Computers at 96188 49601 for questions about an enquiry or to request that the store remove information you have shared with it.</p>
+ </article></main>;
+}
