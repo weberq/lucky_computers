@@ -1,7 +1,7 @@
 import assert from "node:assert/strict";
 import { readFileSync, existsSync } from "node:fs";
 import path from "node:path";
-const pages = ["", "laptops", "repairs", "visit", "privacy"];
+const pages = ["", "laptops", "repairs", "business-it-support", "visit", "privacy"];
 for (const page of pages) {
   const file = path.join("out", page, "index.html");
   const html = readFileSync(file, "utf8");
@@ -37,4 +37,4 @@ for (const page of pages) {
 }
 const sitemap = readFileSync("out/sitemap.xml","utf8");
 for(const page of pages) assert.ok(sitemap.includes(page ? "/" + page + "/" : "<loc>"), "Missing sitemap page");
-console.log("Static checks passed: 5 pages, assets, canonicals, address, phone, hours and schema.");
+console.log(`Static checks passed: ${pages.length} pages, assets, canonicals, address, phone, hours and schema.`);

@@ -6,7 +6,7 @@ import { Menu, X, MapPin } from "lucide-react";
 import logo from "@/assets/Logo.webp";
 import { SITE } from "@/lib/site";
 
-const links = [{name:"Laptops & PCs",href:"/laptops/"},{name:"Repairs",href:"/repairs/"},{name:"Visit the store",href:"/visit/"}];
+const links = [{name:"Laptops & PCs",href:"/laptops/"},{name:"Repairs",href:"/repairs/"},{name:"Business IT",href:"/business-it-support/"},{name:"Visit the store",href:"/visit/"}];
 
 export default function Navbar() {
   const [open,setOpen] = useState(false);
