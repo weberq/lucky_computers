@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 
 const GA_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID ?? "";
 const ADS_ID = process.env.NEXT_PUBLIC_GOOGLE_ADS_ID ?? "";
+const WHATSAPP_CONVERSION = process.env.NEXT_PUBLIC_WHATSAPP_CONVERSION_LABEL ?? "";
 const TAG_ID = GA_ID || ADS_ID;
 const STORAGE_KEY = "lucky-measurement-consent";
 const ACTIONS = new Set(["directions_click", "call_click", "whatsapp_click", "whatsapp_enquiry_click"]);
@@ -37,19 +38,35 @@ export default function Analytics() {
     if (GA_ID) window.gtag("config", GA_ID, { send_page_view: false, allow_google_signals: false, allow_ad_personalization_signals: false });
     if (ADS_ID) window.gtag("config", ADS_ID, { allow_ad_personalization_signals: false });
     }
-    const listener = (event: MouseEvent) => {
-      const target = event.target instanceof Element ? event.target.closest<HTMLElement>("[data-action]") : null;
+    const record = (target: HTMLElement | null) => {
       if (!target || !ACTIONS.has(target.dataset.action ?? "")) return;
-      // Don't record invalid form submissions or any enquiry text/contact data.
-      if (target instanceof HTMLButtonElement && target.form && !target.form.checkValidity()) return;
       window.gtag?.("event", target.dataset.action, {
         action_placement: target.dataset.placement ?? "page",
         page_path: window.location.pathname,
         transport_type: "beacon",
       });
+      // This is an observation-only click, never a confirmed message or lead.
+      if (ADS_ID && WHATSAPP_CONVERSION && ["whatsapp_click", "whatsapp_enquiry_click"].includes(target.dataset.action ?? "")) {
+        window.gtag?.("event", "conversion", { send_to: `${ADS_ID}/${WHATSAPP_CONVERSION}`, value: 0, currency: "INR", transport_type: "beacon" });
+      }
+    };
+    const listener = (event: MouseEvent) => {
+      const target = event.target instanceof Element ? event.target.closest<HTMLElement>("[data-action]") : null;
+      // Forms are measured on valid submission, including keyboard submission.
+      if (target instanceof HTMLButtonElement && target.form) return;
+      record(target);
+    };
+    const submitListener = (event: SubmitEvent) => {
+      const form = event.target;
+      if (!(form instanceof HTMLFormElement) || !form.checkValidity()) return;
+      record(form.querySelector<HTMLElement>('[data-action="whatsapp_enquiry_click"]'));
     };
     document.addEventListener("click", listener);
-    return () => document.removeEventListener("click", listener);
+    document.addEventListener("submit", submitListener);
+    return () => {
+      document.removeEventListener("click", listener);
+      document.removeEventListener("submit", submitListener);
+    };
   }, [choice]);
 
   useEffect(() => {

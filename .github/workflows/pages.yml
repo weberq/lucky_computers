@@ -37,6 +37,7 @@ jobs:
           NEXT_PUBLIC_BASE_PATH: ${{ steps.pages.outputs.base_path || (github.event_name == 'pull_request' && '/lucky_computers') || '' }}
           NEXT_PUBLIC_GA_MEASUREMENT_ID: ${{ vars.GA_MEASUREMENT_ID }}
           NEXT_PUBLIC_GOOGLE_ADS_ID: ${{ vars.GOOGLE_ADS_ID }}
+          NEXT_PUBLIC_WHATSAPP_CONVERSION_LABEL: ${{ vars.WHATSAPP_CONVERSION_LABEL }}
           NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION: ${{ vars.GOOGLE_SITE_VERIFICATION }}
         run: npm run build
       - name: Check exported pages and contact details
