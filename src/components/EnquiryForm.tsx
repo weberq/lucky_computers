@@ -7,7 +7,7 @@ export default function EnquiryForm({ salesOnly = false }: { salesOnly?: boolean
   function submit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
-    const message = ["Hello Lucky Computers,", `I'm interested in: ${data.get("interest")}`, `Details: ${String(data.get("message")).trim()}`].join("\n");
+    const message = ["Hello Lucky Computers, I found you on luckycomputers.in.", `I'm interested in: ${data.get("interest")}`, `Details: ${String(data.get("message")).trim()}`].join("\n");
     const url = whatsappUrl(message);
     setHandoff(url);
     window.open(url, "_blank", "noopener,noreferrer");
@@ -18,7 +18,7 @@ export default function EnquiryForm({ salesOnly = false }: { salesOnly?: boolean
     <label className="mt-6 block text-sm font-semibold" htmlFor="interest">I’m interested in</label>
     <select className="form-input" id="interest" name="interest" required defaultValue="">
       <option value="" disabled>Select an option</option>
-      {["Refurbished laptop or desktop","New laptop on request","Custom PC","Computer accessories","Mobile accessories",...(!salesOnly?["Laptop or desktop repair","Mobile or iPhone repair"]:[])].map(item=><option key={item}>{item}</option>)}
+      {[...(!salesOnly?["Laptop or desktop repair","Mobile or iPhone repair"]:[]),"Refurbished laptop or desktop","New laptop on request","Custom PC","Computer accessories","Mobile accessories"].map(item=><option key={item}>{item}</option>)}
     </select>
     <label className="mt-5 block text-sm font-semibold" htmlFor="enquiry-message">Your requirements</label>
     <textarea className="form-input min-h-32" id="enquiry-message" name="message" required maxLength={1500} placeholder="Your budget, preferred specifications, device model or question…" />
