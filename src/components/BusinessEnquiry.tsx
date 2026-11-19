@@ -20,11 +20,11 @@ export default function BusinessEnquiry() {
     <label className="mt-5 block text-sm font-semibold" htmlFor="business-service">Service required</label>
     <select className="form-input" id="business-service" name="service" required defaultValue="">
       <option value="" disabled>Select a business service</option>
-      {["Office laptop or desktop repair", "Business computer maintenance", "Office RAM or SSD upgrades", "Business IT support"].map(service=><option key={service}>{service}</option>)}
+      {["Office network setup", "Ongoing business IT maintenance", "Annual maintenance contract (AMC)", "Business IT support"].map(service=><option key={service}>{service}</option>)}
     </select>
-    <label className="mt-5 block text-sm font-semibold" htmlFor="business-details">Devices and requirements</label>
-    <textarea className="form-input min-h-32" id="business-details" name="details" required maxLength={1500} placeholder="Business location, number of office devices, models and the issue…"/>
-    <label className="mt-5 flex items-start gap-3 text-sm leading-6"><input className="mt-1.5" type="checkbox" required name="businessOnly"/>I represent a business and am enquiring about devices used by that business, not personal-device repairs.</label>
+    <label className="mt-5 block text-sm font-semibold" htmlFor="business-details">Office IT requirements</label>
+    <textarea className="form-input min-h-32" id="business-details" name="details" required maxLength={1500} placeholder="Office location, number of users, existing network and the support required…"/>
+    <label className="mt-5 flex items-start gap-3 text-sm leading-6"><input className="mt-1.5" type="checkbox" required name="businessOnly"/>I represent a business and am enquiring about its office network, IT maintenance or business support requirements.</label>
     <p className="my-4 text-xs leading-5 text-slate-500">Do not include passwords, confidential files or payment details. This website does not store your enquiry.</p>
     <button className="btn-primary w-full" type="submit" data-action="whatsapp_enquiry_click" data-placement="business_enquiry">Prepare business enquiry</button>
     {handoff&&<p role="status" className="mt-4 text-sm leading-6">Your enquiry has not been sent yet. Review and send it in WhatsApp. <a className="text-blue-700 underline" href={handoff} target="_blank" rel="noopener noreferrer">Open WhatsApp again</a>.</p>}
